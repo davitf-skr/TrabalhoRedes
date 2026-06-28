@@ -1,11 +1,6 @@
 ```markdown
 # Monitor de Rede Inteligente (IDS/IPS)
 
-![Python](https://img.shields.io/badge/Python-3.8+-blue.svg)
-![Linux](https://img.shields.io/badge/Linux-Supported-green.svg)
-![Status](https://img.shields.io/badge/Status-Active-success.svg)
-![Institution](https://img.shields.io/badge/Institution-UFF-blue.svg)
-
 Material de apoio e laboratório prático da disciplina de Redes de Computadores.
 
 O objetivo deste repositório é demonstrar, de forma visual e interativa, como construir um sistema de monitoramento de tráfego em tempo real (Sniffer) utilizando Python. Além disso, implementa lógicas de detecção e prevenção ativa para ataques de negação de serviço (DoS/SYN Flood) e varreduras de rede (Port Scan/Nmap).

@@ -1,7 +1,11 @@
 import sys
 from datetime import datetime
 from scapy.all import sniff
-
+from Observadores.http import *
+from Observadores.ipso import *
+from Observadores.dash import *
+import threading
+from Observadores.dash import app, DashboardObserver
 
 
 
@@ -42,5 +46,21 @@ class SnifferSujeito:
 if __name__ == "__main__":
     sniffer = SnifferSujeito()
 
+    
+    http_analise = AnalisadorHTTP()
+    ids = IPSObserver()
+    dash = DashboardObserver(lista_bloqueados_referencia=ids.ips_bloqueados)
+
+
+    sniffer.assinar(http_analise) 
+    sniffer.assinar(ids) 
+    sniffer.assinar(dash)
+    
+    def rodar_dash():
+        app.run(debug=False, port=8050, use_reloader=False)
+
+    thread_dash = threading.Thread(target=rodar_dash)
+    thread_dash.daemon = True  
+    thread_dash.start()
 
     sniffer.iniciar()
